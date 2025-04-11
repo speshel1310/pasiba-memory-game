@@ -1,9 +1,11 @@
+/* Глобальные сбросы стилей */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Основные стили для тела документа */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: #1C1C1C;
@@ -14,40 +16,46 @@ body {
     color: white;
 }
 
+/* Основной контейнер */
 .container {
     text-align: center;
-    padding: 20px;
+    padding: 15px; /* Уменьшил отступ для лучшего размещения в iframe */
     width: 100%;
-    max-width: 800px;
+    max-width: 600px; /* Уменьшил с 800px для лучшего соотношения сторон 4:3 */
 }
 
+/* Стили для контейнера логотипа */
 .logo {
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Уменьшил с 30px для экономии места */
 }
 
+/* Стили для изображения логотипа */
 #restaurant-logo {
-    max-width: 180px;
+    max-width: 150px; /* Уменьшил с 180px для экономии места */
     height: auto;
 }
 
+/* Стили для заголовка */
 h1 {
     color: white;
-    margin-bottom: 30px;
-    font-size: 32px;
+    margin-bottom: 20px; /* Уменьшил с 30px */
+    font-size: 24px; /* Уменьшил с 32px */
     font-weight: 600;
 }
 
+/* Контейнер для информации об игре (кнопка перезапуска) */
 .game-info {
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Уменьшил с 30px */
 }
 
+/* Стили для кнопки перезапуска */
 #restart-btn {
-    padding: 12px 24px;
-    font-size: 16px;
+    padding: 10px 20px; /* Уменьшил размер кнопки */
+    font-size: 14px; /* Уменьшил размер шрифта */
     background-color: #E27B66;
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: 500;
     transition: background-color 0.2s ease;
@@ -57,19 +65,21 @@ h1 {
     background-color: #d66d58;
 }
 
+/* Сетка для игрового поля */
 .game-board {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    gap: 10px; /* Уменьшил с 15px */
     margin: 0 auto;
-    max-width: 600px;
-    padding: 20px;
+    max-width: 500px; /* Уменьшил с 600px */
+    padding: 10px; /* Уменьшил с 20px */
 }
 
+/* Стили для карточек */
 .card {
     aspect-ratio: 1;
     background-color: #2A2A2A;
-    border-radius: 12px;
+    border-radius: 10px; /* Уменьшил с 12px */
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -83,14 +93,16 @@ h1 {
     transform: translateY(-2px);
 }
 
+/* Стили для изображений на карточках */
 .card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: none;
-    border-radius: 12px;
+    border-radius: 10px; /* Уменьшил с 12px */
 }
 
+/* Стили для перевернутых карточек */
 .card.flipped {
     background-color: #333;
     transform: rotateY(180deg);
@@ -100,53 +112,138 @@ h1 {
     display: block;
 }
 
+/* Стили для совпавших карточек */
 .card.matched {
     background-color: #2A2A2A;
     box-shadow: 0 0 0 2px #E27B66;
 }
 
+/* Стили для сообщения о победе */
 #win-message {
-    margin-top: 30px;
-    padding: 20px;
+    margin-top: 20px; /* Уменьшил с 30px */
+    padding: 15px; /* Уменьшил с 20px */
     background-color: #E27B66;
     color: white;
-    border-radius: 12px;
-    font-size: 18px;
+    border-radius: 10px; /* Уменьшил с 12px */
+    font-size: 16px; /* Уменьшил с 18px */
     font-weight: 500;
     animation: fadeIn 0.5s ease;
+    position: relative; /* Для позиционирования уведомления о копировании */
 }
 
+/* Анимация появления сообщения о победе */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Класс для скрытия элементов */
 .hidden {
     display: none;
 }
 
-/* Mobile responsiveness */
+/* Стили для промокода */
+.promo-code {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 2px 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.promo-code:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Стили для уведомления о копировании */
+.copy-notification {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.copy-notification.show {
+    opacity: 1;
+}
+
+/* Медиа-запрос для мобильных устройств */
 @media (max-width: 480px) {
     .container {
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .game-board {
-        gap: 8px;
         padding: 10px;
     }
-
+    h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .logo {
+        margin-bottom: 15px;
+    }
+    #restaurant-logo {
+        max-width: 120px;
+    }
+    .game-board {
+        gap: 6px;
+        padding: 6px;
+    }
     .card {
-        border-radius: 8px;
+        border-radius: 6px;
     }
-
     #win-message {
-        font-size: 16px;
-        padding: 15px;
+        font-size: 14px;
+        padding: 10px;
     }
-} 
+}
+
+/* Дополнительные адаптации для фреймов с соотношением сторон 4:3 */
+@media (max-aspect-ratio: 4/3) {
+    .container {
+        padding: 10px;
+        max-width: 500px;
+    }
+    
+    h1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+    
+    #restaurant-logo {
+        max-width: 100px;
+    }
+    
+    .game-info {
+        margin-bottom: 10px;
+    }
+    
+    #restart-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .game-board {
+        gap: 5px;
+        padding: 5px;
+        max-width: 400px;
+    }
+    
+    #win-message {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 12px;
+    }
+}
