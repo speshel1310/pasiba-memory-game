@@ -17,14 +17,14 @@ class MemoryGame {
         
         // Пути к изображениям карточек
         this.cardValues = [
-            'images/card1.jpg',
-            'images/card2.jpg',
-            'images/card3.jpg',
-            'images/card4.jpg',
-            'images/card5.jpg',
-            'images/card6.jpg',
-            'images/card7.jpg',
-            'images/card8.jpg'
+            'images/card1.webp',
+            'images/card2.webp',
+            'images/card3.webp',
+            'images/card4.webp',
+            'images/card5.webp',
+            'images/card6.webp',
+            'images/card7.webp',
+            'images/card8.webp'
         ];
         
         // Инициализация игры и настройка копирования промокода
